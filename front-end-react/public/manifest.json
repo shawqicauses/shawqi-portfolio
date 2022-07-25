@@ -1,0 +1,9 @@
+{
+  "short_name": "Portfolio",
+  "name": "Shawqi's Portfolio",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#18181b",
+  "background_color": "#fafafa"
+}
