@@ -1,5 +1,6 @@
 .env.local
 .vscode
+.env
 build
 node_modules
 back-end-react/node_modules
