@@ -1,4 +1,5 @@
 import { DocumentTextIcon, ExternalLinkIcon } from "@heroicons/react/outline"
+import { motion } from "framer-motion"
 import { images } from "../../constants/constants"
 import { classes } from "../../utils/utils"
 
@@ -22,11 +23,14 @@ export default function Header() {
             "flex h-auto w-auto flex-col",
             "items-start justify-center gap-0"
           )}>
-          <h1
+          <motion.h1
+            whileInView={{ y: [20, 0], opacity: [0, 1] }}
+            transition={{ duration: 0.5, delay: 0.25 }}
             className={classes(
               "text-xl-3 max-w-lg font-bold leading-tight",
               "mb-4 text-left tracking-tight text-zinc-900 md:mb-8",
-              "md:text-xl-4 xl:max-w-xl-2 xl:text-xl-5 md:max-w-xl"
+              "md:text-xl-4 xl:max-w-xl-2 xl:text-xl-5 md:max-w-xl",
+              "translate-y-5 transform opacity-0"
             )}>
             I have great{" "}
             <span
@@ -37,22 +41,28 @@ export default function Header() {
               experience
             </span>{" "}
             in web design and development 🔸
-          </h1>
-          <p
+          </motion.h1>
+          <motion.p
+            whileInView={{ y: [20, 0], opacity: [0, 1] }}
+            transition={{ duration: 0.5, delay: 0.375 }}
             className={classes(
               "text-lg font-normal leading-relaxed",
               "max-w-xl-3 mb-8 text-left text-zinc-500",
+              "translate-y-5 transform opacity-0",
               "lg:max-w-xl-4 md:mb-14 md:text-xl"
             )}>
             Hi there, Shawqi Hatem is my name. I am a web designer and developer
             who has great experience which has been built during over four years
             of learning and practicing
-          </p>
-          <div
+          </motion.p>
+          <motion.div
+            whileInView={{ y: [20, 0], opacity: [0, 1] }}
+            transition={{ duration: 0.5, delay: 0.5 }}
             className={classes(
-              "flex h-auto w-full flex-col",
+              "flex h-auto w-full transform flex-col",
               "items-stretch justify-center gap-3",
-              "sm:h-max sm:w-max sm:flex-row sm:gap-4"
+              "sm:h-max sm:w-max sm:flex-row sm:gap-4",
+              "translate-y-4 opacity-0"
             )}>
             <button
               className={classes(
@@ -64,6 +74,7 @@ export default function Header() {
                 "focus:translate-y-0 focus:ring-offset-zinc-50 sm:focus:translate-y-0.5"
               )}>
               <DocumentTextIcon
+                strokeWidth={1.5}
                 className={classes(
                   "relative h-6 w-6",
                   "fill-transparent stroke-current"
@@ -83,7 +94,7 @@ export default function Header() {
                 "focus:translate-y-0 focus:ring-offset-zinc-50 sm:focus:translate-y-0.5"
               )}>
               <ExternalLinkIcon
-                strokeWidth={2}
+                strokeWidth={1.5}
                 className={classes(
                   "relative h-6 w-6",
                   "fill-transparent stroke-current"
@@ -91,19 +102,22 @@ export default function Header() {
               />
               <span>My Projects</span>
             </a>
-          </div>
+          </motion.div>
         </div>
-        <div
+        <motion.div
+          whileInView={{ y: [20, 0], opacity: [0, 1] }}
+          transition={{ duration: 0.5, delay: 0.625 }}
           className={classes(
             "aspect-square max-w-xl flex-1",
-            "flex items-center justify-center"
+            "flex items-center justify-center",
+            "translate-y-5 transform opacity-0 opacity-0"
           )}>
           <img
             src={images.file}
             alt="File Illustration"
             className={classes("h-full w-full object-cover")}
           />
-        </div>
+        </motion.div>
       </div>
       <div
         className={classes(

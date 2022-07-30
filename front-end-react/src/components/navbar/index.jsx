@@ -1,3 +1,4 @@
+import { motion } from "framer-motion"
 import { classes } from "../../utils/utils"
 import { Logo } from "../components"
 
@@ -17,7 +18,13 @@ export default function Navbar() {
           "flex flex-row flex-wrap gap-5",
           "items-center justify-between sm:gap-10"
         )}>
-        <Logo />
+        <motion.div
+          whileInView={{ y: [20, 0], opacity: [0, 1] }}
+          transition={{ duration: 0.5, delay: 0 }}
+          viewport={{ once: true }}
+          className={classes("translate-y-5 transform opacity-0")}>
+          <Logo />
+        </motion.div>
         <ul
           className={classes(
             "fixed top-0 left-0 z-10 flex h-full w-full",
@@ -25,14 +32,18 @@ export default function Navbar() {
             "items-center justify-center gap-3 bg-white p-5 lg:p-0",
             "lg:relative lg:w-max lg:translate-x-0 lg:bg-transparent"
           )}>
-          {links.map(function (item) {
+          {links.map(function (item, index) {
             return (
-              <li
+              <motion.li
                 key={["Link".toUpperCase() + item.toLowerCase()].join("-")}
+                whileInView={{ y: [20, 0], opacity: [0, 1] }}
+                transition={{ duration: 0.5, delay: 0.25 + 0.125 * index }}
+                viewport={{ once: true }}
                 className={classes(
                   "flex h-auto w-full cursor-pointer",
                   "flex-col flex-wrap lg:h-max lg:w-max",
-                  "items-center justify-center transition"
+                  "transform items-center justify-center",
+                  "translate-y-5 opacity-0"
                 )}>
                 <a
                   href={"#" + item.toLowerCase()}
@@ -46,7 +57,7 @@ export default function Navbar() {
                   )}>
                   {item}
                 </a>
-              </li>
+              </motion.li>
             )
           })}
         </ul>
