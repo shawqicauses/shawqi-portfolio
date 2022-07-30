@@ -9,7 +9,8 @@ export default function Header() {
       className={classes(
         "relative h-auto w-auto",
         "flex items-center justify-center",
-        "xl-2:py-48 py-24 sm:py-32 lg:py-40"
+        "xl-2:py-48 py-24 sm:py-32 lg:py-40",
+        "mb-12 lg:mb-20 xl:mb-[5.75rem]"
       )}>
       <div
         className={classes(
@@ -110,7 +111,7 @@ export default function Header() {
           className={classes(
             "aspect-square max-w-xl flex-1",
             "flex items-center justify-center",
-            "translate-y-5 transform opacity-0 opacity-0"
+            "translate-y-5 transform opacity-0"
           )}>
           <img
             src={images.file}

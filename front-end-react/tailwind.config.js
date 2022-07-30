@@ -43,7 +43,8 @@ module.exports = {
     },
     fontFamily: {
       "poppins": "poppins, sans-serif",
-      "sans-serif": "sans-serif"
+      "sans-serif": "sans-serif",
+      "monospace": "monospace, sans-serif"
     },
     fontSize: {
       "xs": "0.75rem",
