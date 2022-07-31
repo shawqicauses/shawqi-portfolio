@@ -27,6 +27,7 @@ export default function Header() {
           <motion.h1
             whileInView={{ y: [20, 0], opacity: [0, 1] }}
             transition={{ duration: 0.5, delay: 0.25 }}
+            viewport={{ once: true }}
             className={classes(
               "text-xl-3 max-w-lg font-bold leading-tight",
               "mb-4 text-left tracking-tight text-zinc-900 md:mb-8",
@@ -46,6 +47,7 @@ export default function Header() {
           <motion.p
             whileInView={{ y: [20, 0], opacity: [0, 1] }}
             transition={{ duration: 0.5, delay: 0.375 }}
+            viewport={{ once: true }}
             className={classes(
               "text-lg font-normal leading-relaxed",
               "max-w-xl-3 mb-8 text-left text-zinc-500",
@@ -59,6 +61,7 @@ export default function Header() {
           <motion.div
             whileInView={{ y: [20, 0], opacity: [0, 1] }}
             transition={{ duration: 0.5, delay: 0.5 }}
+            viewport={{ once: true }}
             className={classes(
               "flex h-auto w-full transform flex-col",
               "items-stretch justify-center gap-3",
@@ -108,6 +111,7 @@ export default function Header() {
         <motion.div
           whileInView={{ y: [20, 0], opacity: [0, 1] }}
           transition={{ duration: 0.5, delay: 0.625 }}
+          viewport={{ once: true }}
           className={classes(
             "aspect-square max-w-xl flex-1",
             "flex items-center justify-center",

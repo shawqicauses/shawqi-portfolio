@@ -1,3 +1,4 @@
+import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import { client, urlForImage } from "../../client"
 import { classes } from "../../utils/utils"
@@ -31,7 +32,11 @@ export default function About() {
             "lg:items-center lg:justify-center",
             "mb-[3.75rem] gap-3 lg:mb-20"
           )}>
-          <h2
+          <motion.h2
+            initial={{ transform: "translate(0, 1.25rem)", opacity: 0 }}
+            whileInView={{ y: [20, 0], opacity: [0, 1] }}
+            transition={{ duration: 0.5, delay: 0 }}
+            viewport={{ once: true }}
             className={classes(
               "font-semi-bold text-xl-2 relative leading-tight",
               "max-w-xs text-left capitalize tracking-tight",
@@ -55,8 +60,12 @@ export default function About() {
               business
             </span>{" "}
             for you!
-          </h2>
-          <p
+          </motion.h2>
+          <motion.p
+            initial={{ transform: "translate(0, 1.25rem)", opacity: 0 }}
+            whileInView={{ y: [20, 0], opacity: [0, 1] }}
+            transition={{ duration: 0.5, delay: 0.125 }}
+            viewport={{ once: true }}
             className={classes(
               "max-w-none text-base font-normal leading-normal",
               "max-w-sm text-left tracking-normal text-zinc-500 xl:text-xl",
@@ -64,17 +73,21 @@ export default function About() {
             )}>
             Trust me, this section is not a promotion for me as a professional,
             it is just what I really know and have a lot experience in
-          </p>
+          </motion.p>
         </div>
         <div
           className={classes(
-            "w-fullc grid h-auto grid-cols-1 gap-10",
+            "grid h-auto w-full grid-cols-1 gap-10",
             "content-start items-start justify-center",
             "xl-2:gap-20 md:grid-cols-2 lg:grid-cols-3 xl:gap-[3.75rem]"
           )}>
           {about.map((item, index) => (
-            <div
+            <motion.div
               key={index}
+              initial={{ transform: "translate(0, 1.25rem)", opacity: 0 }}
+              whileInView={{ y: [20, 0], opacity: [0, 1] }}
+              transition={{ duration: 0.5, delay: 0.25 + index * 0.125 }}
+              viewport={{ once: true }}
               className={classes("flex flex-col items-start justify-start")}>
               <img
                 src={urlForImage(item.image)}
@@ -108,7 +121,7 @@ export default function About() {
                 )}>
                 {item.description}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
