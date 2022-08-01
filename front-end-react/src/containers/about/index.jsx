@@ -14,13 +14,53 @@ export default function About() {
       .catch(error => console.log(error))
   }, [])
 
+  const variants = {
+    container: {
+      hidden: {
+        transition: {
+          delayChildren: 0,
+          staggerChildren: 0.125,
+          staggerDirection: -1
+        }
+      },
+      visible: {
+        transition: {
+          delayChildren: 0,
+          staggerChildren: 0.125,
+          staggerDirection: 1
+        }
+      }
+    },
+    item: {
+      hidden: {
+        y: 20,
+        opacity: 0,
+        transition: {
+          type: "spring",
+          stiffness: 100
+        }
+      },
+      visible: {
+        y: 0,
+        opacity: 1,
+        transition: {
+          type: "spring",
+          stiffness: 100
+        }
+      }
+    }
+  }
+
   return (
     <section
       className={classes(
         "flex flex-col items-center justify-center",
         "my-4 py-8 lg:my-10 lg:py-10 xl:my-11 xl:py-12"
       )}>
-      <div
+      <motion.div
+        variants={variants.container}
+        initial={"hidden"}
+        whileInView={"visible"}
         className={classes(
           "xl-2:max-w-xl-7 container mx-auto px-5",
           "flex flex-col items-start justify-start gap-0",
@@ -33,10 +73,7 @@ export default function About() {
             "mb-[3.75rem] gap-3 lg:mb-20"
           )}>
           <motion.h2
-            initial={{ transform: "translate(0, 1.25rem)", opacity: 0 }}
-            whileInView={{ y: [20, 0], opacity: [0, 1] }}
-            transition={{ duration: 0.5, delay: 0 }}
-            viewport={{ once: true }}
+            variants={variants.item}
             className={classes(
               "font-semi-bold text-xl-2 relative leading-tight",
               "max-w-xs text-left capitalize tracking-tight",
@@ -64,10 +101,7 @@ export default function About() {
             for you!
           </motion.h2>
           <motion.p
-            initial={{ transform: "translate(0, 1.25rem)", opacity: 0 }}
-            whileInView={{ y: [20, 0], opacity: [0, 1] }}
-            transition={{ duration: 0.5, delay: 0.125 }}
-            viewport={{ once: true }}
+            variants={variants.item}
             className={classes(
               "max-w-none text-base font-normal leading-normal",
               "max-w-sm text-left tracking-normal text-zinc-500 xl:text-xl",
@@ -86,10 +120,7 @@ export default function About() {
           {about.map((item, index) => (
             <motion.div
               key={index}
-              initial={{ transform: "translate(0, 1.25rem)", opacity: 0 }}
-              whileInView={{ y: [20, 0], opacity: [0, 1] }}
-              transition={{ duration: 0.5, delay: 0.25 + index * 0.125 }}
-              viewport={{ once: true }}
+              variants={variants.item}
               className={classes("flex flex-col items-start justify-start")}>
               <img
                 src={urlForImage(item.image)}
@@ -126,7 +157,7 @@ export default function About() {
             </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   )
 }
