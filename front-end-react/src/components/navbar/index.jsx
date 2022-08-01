@@ -5,6 +5,77 @@ import { Logo } from "../components"
 export default function Navbar() {
   const links = ["Home", "About", "Work", "Skills", "Contact"]
 
+  const variants = {
+    container: {
+      hidden: {
+        transition: {
+          delayChildren: 0,
+          staggerChildren: 0.0625,
+          staggerDirection: -1
+        }
+      },
+      visible: {
+        transition: {
+          delayChildren: 0,
+          staggerChildren: 0.0625,
+          staggerDirection: 1
+        }
+      }
+    },
+    logo: {
+      hidden: {
+        y: 20,
+        opacity: 0,
+        transition: {
+          type: "spring",
+          stiffness: 100
+        }
+      },
+      visible: {
+        y: 0,
+        opacity: 1,
+        transition: {
+          type: "spring",
+          stiffness: 100
+        }
+      }
+    },
+    list: {
+      hidden: {
+        transition: {
+          delayChildren: 0,
+          staggerChildren: 0.125,
+          staggerDirection: -1
+        }
+      },
+      visible: {
+        transition: {
+          delayChildren: 0,
+          staggerChildren: 0.125,
+          staggerDirection: 1
+        }
+      }
+    },
+    item: {
+      hidden: {
+        y: 20,
+        opacity: 0,
+        transition: {
+          type: "spring",
+          stiffness: 100
+        }
+      },
+      visible: {
+        y: 0,
+        opacity: 1,
+        transition: {
+          type: "spring",
+          stiffness: 100
+        }
+      }
+    }
+  }
+
   return (
     <nav
       className={classes(
@@ -12,20 +83,22 @@ export default function Navbar() {
         "flex w-full items-center justify-center",
         "bg-transparent text-zinc-900"
       )}>
-      <div
+      <motion.div
+        variants={variants.container}
+        initial={"hidden"}
+        whileInView={"visible"}
         className={classes(
           "xl:max-w-xl-7 container mx-auto px-5",
           "flex flex-row flex-wrap gap-5",
           "items-center justify-between sm:gap-10"
         )}>
         <motion.div
-          whileInView={{ y: [20, 0], opacity: [0, 1] }}
-          transition={{ duration: 0.5, delay: 0 }}
-          viewport={{ once: true }}
+          variants={variants.logo}
           className={classes("translate-y-5 transform opacity-0")}>
           <Logo />
         </motion.div>
-        <ul
+        <motion.ul
+          variants={variants.list}
           className={classes(
             "fixed top-0 left-0 z-10 flex h-full w-full",
             "translate-x-full transform flex-col flex-wrap lg:flex-row",
@@ -35,15 +108,12 @@ export default function Navbar() {
           {links.map(function (item, index) {
             return (
               <motion.li
+                variants={variants.item}
                 key={["Link".toUpperCase() + item.toLowerCase()].join("-")}
-                whileInView={{ y: [20, 0], opacity: [0, 1] }}
-                transition={{ duration: 0.5, delay: 0.25 + 0.125 * index }}
-                viewport={{ once: true }}
                 className={classes(
                   "flex h-auto w-full cursor-pointer",
                   "flex-col flex-wrap lg:h-max lg:w-max",
-                  "transform items-center justify-center",
-                  "translate-y-5 opacity-0"
+                  "transform items-center justify-center"
                 )}>
                 <a
                   href={"#" + item.toLowerCase()}
@@ -60,8 +130,8 @@ export default function Navbar() {
               </motion.li>
             )
           })}
-        </ul>
-      </div>
+        </motion.ul>
+      </motion.div>
     </nav>
   )
 }

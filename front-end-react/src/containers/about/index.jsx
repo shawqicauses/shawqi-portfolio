@@ -47,7 +47,8 @@ export default function About() {
             <span
               className={classes(
                 "underline underline-offset-2",
-                "decoration-orange-300 decoration-2"
+                "decoration-orange-300 decoration-2",
+                "md:decoration-orange-500 md:decoration-4"
               )}>
               development
             </span>{" "}
@@ -55,7 +56,8 @@ export default function About() {
             <span
               className={classes(
                 "underline underline-offset-2",
-                "decoration-orange-300 decoration-2"
+                "decoration-orange-300 decoration-2",
+                "md:decoration-orange-500 md:decoration-4"
               )}>
               business
             </span>{" "}
