@@ -22,24 +22,6 @@ export default function Navbar() {
         }
       }
     },
-    logo: {
-      hidden: {
-        y: 20,
-        opacity: 0,
-        transition: {
-          type: "spring",
-          stiffness: 100
-        }
-      },
-      visible: {
-        y: 0,
-        opacity: 1,
-        transition: {
-          type: "spring",
-          stiffness: 100
-        }
-      }
-    },
     list: {
       hidden: {
         transition: {
@@ -92,9 +74,7 @@ export default function Navbar() {
           "flex flex-row flex-wrap gap-5",
           "items-center justify-between sm:gap-10"
         )}>
-        <motion.div
-          variants={variants.logo}
-          className={classes("translate-y-5 transform opacity-0")}>
+        <motion.div variants={variants.item}>
           <Logo />
         </motion.div>
         <motion.ul

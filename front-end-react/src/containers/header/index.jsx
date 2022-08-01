@@ -4,6 +4,59 @@ import { images } from "../../constants/constants"
 import { classes } from "../../utils/utils"
 
 export default function Header() {
+  const variants = {
+    container: {
+      hidden: {
+        transition: {
+          delayChildren: 0.5,
+          staggerChildren: 0.125,
+          staggerDirection: -1
+        }
+      },
+      visible: {
+        transition: {
+          delayChildren: 0.5,
+          staggerChildren: 0.125,
+          staggerDirection: 1
+        }
+      }
+    },
+    introduction: {
+      hidden: {
+        transition: {
+          delayChildren: 0,
+          staggerChildren: 0.125,
+          staggerDirection: -1
+        }
+      },
+      visible: {
+        transition: {
+          delayChildren: 0,
+          staggerChildren: 0.125,
+          staggerDirection: 1
+        }
+      }
+    },
+    item: {
+      hidden: {
+        y: 20,
+        opacity: 0,
+        transition: {
+          type: "spring",
+          stiffness: 100
+        }
+      },
+      visible: {
+        y: 0,
+        opacity: 1,
+        transition: {
+          type: "spring",
+          stiffness: 100
+        }
+      }
+    }
+  }
+
   return (
     <header
       className={classes(
@@ -12,27 +65,28 @@ export default function Header() {
         "xl-2:py-48 py-24 sm:py-32 lg:py-40",
         "mb-12 lg:mb-20 xl:mb-[5.75rem]"
       )}>
-      <div
+      <motion.div
+        variants={variants.container}
+        initial={"hidden"}
+        whileInView={"visible"}
         className={classes(
           "xl-2:max-w-xl-7 container mx-auto h-full px-5",
           "flex flex-col items-start justify-start gap-10",
           "lg:flex-row lg:items-center lg:justify-center"
         )}>
-        <div
+        <motion.div
+          variants={variants.introduction}
           className={classes(
             "relative shrink grow basis-0",
             "flex h-auto w-auto flex-col",
             "items-start justify-center gap-0"
           )}>
           <motion.h1
-            whileInView={{ y: [20, 0], opacity: [0, 1] }}
-            transition={{ duration: 0.5, delay: 0.25 }}
-            viewport={{ once: true }}
+            variants={variants.item}
             className={classes(
               "text-xl-3 max-w-lg font-bold leading-tight",
               "mb-4 text-left tracking-tight text-zinc-900 md:mb-8",
-              "md:text-xl-4 xl:max-w-xl-2 xl:text-xl-5 md:max-w-xl",
-              "translate-y-5 transform opacity-0"
+              "md:text-xl-4 xl:max-w-xl-2 xl:text-xl-5 md:max-w-xl"
             )}>
             I have great{" "}
             <span
@@ -45,13 +99,10 @@ export default function Header() {
             in web design and development 🔸
           </motion.h1>
           <motion.p
-            whileInView={{ y: [20, 0], opacity: [0, 1] }}
-            transition={{ duration: 0.5, delay: 0.375 }}
-            viewport={{ once: true }}
+            variants={variants.item}
             className={classes(
               "text-lg font-normal leading-relaxed",
               "max-w-xl-3 mb-8 text-left text-zinc-500",
-              "translate-y-5 transform opacity-0",
               "lg:max-w-xl-4 md:mb-14 md:text-xl"
             )}>
             Hi there, Shawqi Hatem is my name. I am a web designer and developer
@@ -59,14 +110,11 @@ export default function Header() {
             of learning and practicing
           </motion.p>
           <motion.div
-            whileInView={{ y: [20, 0], opacity: [0, 1] }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            viewport={{ once: true }}
+            variants={variants.item}
             className={classes(
-              "flex h-auto w-full transform flex-col",
+              "flex h-auto w-full flex-col",
               "items-stretch justify-center gap-3",
-              "sm:h-max sm:w-max sm:flex-row sm:gap-4",
-              "translate-y-4 opacity-0"
+              "sm:h-max sm:w-max sm:flex-row sm:gap-4"
             )}>
             <button
               className={classes(
@@ -107,15 +155,12 @@ export default function Header() {
               <span>My Projects</span>
             </a>
           </motion.div>
-        </div>
+        </motion.div>
         <motion.div
-          whileInView={{ y: [20, 0], opacity: [0, 1] }}
-          transition={{ duration: 0.5, delay: 0.625 }}
-          viewport={{ once: true }}
+          variants={variants.item}
           className={classes(
             "aspect-square max-w-xl flex-1",
-            "flex items-center justify-center",
-            "translate-y-5 transform opacity-0"
+            "flex items-center justify-center"
           )}>
           <img
             src={images.file}
@@ -123,7 +168,7 @@ export default function Header() {
             className={classes("h-full w-full object-cover")}
           />
         </motion.div>
-      </div>
+      </motion.div>
       <div
         className={classes(
           "absolute h-full w-full overflow-hidden",
