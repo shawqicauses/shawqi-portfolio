@@ -1,8 +1,19 @@
 import { motion } from "framer-motion"
+import { useEffect, useState } from "react"
+import { client, urlForImage } from "../../client"
 import { classes } from "../../utils/utils"
 
 export default function Work() {
   const dribble = "https://cdn.dribbble.com/users"
+  const [work, setWork] = useState([])
+
+  useEffect(() => {
+    const query = ["*", "[_type == 'work']"].join("")
+    client
+      .fetch(query)
+      .then(data => setWork(data))
+      .catch(error => console.log(error))
+  }, [])
 
   const variants = {
     container: {
@@ -104,51 +115,7 @@ export default function Work() {
             "content-start items-start justify-center",
             "md:grid-cols-2 xl:gap-[3.75rem]"
           )}>
-          {[
-            {
-              image:
-                "https://cdn.dribbble.com/userupload/3229029/file/original-092f16697365ddeb4ea39b815a966574.png",
-              title: "Finance - Landing Page",
-              description: [
-                "I would love to share with you guys my recent work Finance Website Design.",
-                "Hope you guys enjoy and press like if you like it. Got any feedback or comment?",
-                "Feel free to leave in the comments below."
-              ].join(" ")
-            },
-            {
-              image:
-                dribble +
-                "/5922214/screenshots/17487426/media/0b3b2886b5f919d0be332155aba4199a.png",
-              title: "Banking - Landing Page",
-              description: [
-                "I would love to share with you guys my recent work Banking Website Design.",
-                "Hope you guys enjoy and press like if you like it. Got any feedback or comment?",
-                "Feel free to leave in the comments below."
-              ].join(" ")
-            },
-            {
-              image:
-                dribble +
-                "/5922214/screenshots/17378429/media/2258412c8989360788ca43eb4b68f001.png",
-              title: "Agency - Header Design",
-              description: [
-                "I would love to share with you guys my recent work Agency Header Design.",
-                "Hope you guys enjoy and press like if you like it. Got any feedback or comment?",
-                "Feel free to leave in the comments below."
-              ].join(" ")
-            },
-            {
-              image:
-                dribble +
-                "/5922214/screenshots/17853813/media/e9bc63153e90a221bed7a407274458a9.png",
-              title: "Personal - Portfolio Design",
-              description: [
-                "I would love to share with you guys my recent work Personal Portfolio Website Design.",
-                "Hope you guys enjoy and press like if you like it. Got any feedback or comment?",
-                "Feel free to leave in the comments below."
-              ].join(" ")
-            }
-          ].map((item, index) => (
+          {work.map((item, index) => (
             <motion.div
               key={index}
               variants={variants.item}
@@ -157,7 +124,7 @@ export default function Work() {
                 "flex-col items-start justify-start"
               )}>
               <img
-                src={item.image}
+                src={urlForImage(item.image)}
                 alt={index}
                 className={classes(
                   "aspect-[6/4] h-auto w-full object-top",
