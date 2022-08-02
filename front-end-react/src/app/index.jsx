@@ -1,7 +1,7 @@
 import { Fragment } from "react"
 import { Helmet } from "react-helmet"
 import { Navbar } from "../components/components"
-import { About, Header } from "../containers/containers"
+import { About, Header, Work } from "../containers/containers"
 
 export default function App() {
   const font = [
@@ -20,6 +20,7 @@ export default function App() {
       <Navbar />
       <Header />
       <About />
+      <Work />
     </Fragment>
   )
 }

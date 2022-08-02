@@ -76,25 +76,23 @@ export default function About() {
             variants={variants.item}
             className={classes(
               "font-semi-bold text-xl-2 relative leading-tight",
-              "max-w-xs text-left capitalize tracking-tight",
+              "max-w-md text-left capitalize tracking-tight",
               "xl:text-xl-4 md:text-xl-3 lg:max-w-xl-2 md:max-w-lg",
               "xl:max-w-xl-3 lg:text-center"
             )}>
             I clearly know that good{" "}
             <span
               className={classes(
-                "underline underline-offset-2",
-                "decoration-orange-300 decoration-2",
-                "md:decoration-orange-500 md:decoration-4"
+                "bg-gradient-to-br from-red-600 to-orange-300",
+                "bg-clip-text text-transparent no-underline"
               )}>
               development
             </span>{" "}
             means good{" "}
             <span
               className={classes(
-                "underline underline-offset-2",
-                "decoration-orange-300 decoration-2",
-                "md:decoration-orange-500 md:decoration-4"
+                "bg-gradient-to-br from-red-600 to-orange-300",
+                "bg-clip-text text-transparent no-underline"
               )}>
               business
             </span>{" "}
@@ -121,14 +119,18 @@ export default function About() {
             <motion.div
               key={index}
               variants={variants.item}
-              className={classes("flex flex-col items-start justify-start")}>
+              className={classes(
+                "group flex h-auto w-full",
+                "flex-col items-start justify-start"
+              )}>
               <img
                 src={urlForImage(item.image)}
                 alt={item.title}
                 className={classes(
-                  "h-full w-full object-cover object-center",
-                  "aspect-video transform object-cover",
-                  "rounded-xl-2 mb-8 translate-y-0 lg:mb-10"
+                  "aspect-video h-auto w-full object-center",
+                  "rounded-xl-2 mb-8 translate-y-0 transform object-cover",
+                  "grayscale transition duration-150 ease-linear lg:mb-10",
+                  "group-hover:scale-105 group-hover:grayscale-0"
                 )}
               />
               <span
