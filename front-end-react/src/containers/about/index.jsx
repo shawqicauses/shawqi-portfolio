@@ -53,6 +53,7 @@ export default function About() {
 
   return (
     <section
+      id="about"
       className={classes(
         "flex flex-col items-center justify-center",
         "my-4 py-8 lg:my-10 lg:py-10 xl:my-11 xl:py-12"
@@ -102,7 +103,7 @@ export default function About() {
             variants={variants.item}
             className={classes(
               "max-w-none text-base font-normal leading-normal",
-              "max-w-sm text-left tracking-normal text-zinc-500 xl:text-xl",
+              "max-w-sm text-left tracking-normal text-zinc-400 xl:text-xl",
               "lg:max-w-xl-2 sm:max-w-md md:max-w-xl md:text-lg lg:text-center"
             )}>
             Trust me, this section is not a promotion for me as a professional,
@@ -127,10 +128,9 @@ export default function About() {
                 src={urlForImage(item.image)}
                 alt={item.title}
                 className={classes(
-                  "aspect-video h-auto w-full object-center",
-                  "rounded-xl-2 mb-8 translate-y-0 transform object-cover",
-                  "grayscale transition duration-150 ease-linear lg:mb-10",
-                  "group-hover:scale-105 group-hover:grayscale-0"
+                  "mb-8 aspect-video h-auto w-full object-center",
+                  "translate-y-0 transform object-cover group-hover:scale-105",
+                  "rounded-xl-2 transition duration-150 ease-linear lg:mb-10"
                 )}
               />
               <span
@@ -144,7 +144,7 @@ export default function About() {
               <h3
                 className={classes(
                   "font-semi-bold text-left text-lg leading-none",
-                  "text-left tracking-tight text-zinc-900",
+                  "text-left tracking-tight text-white",
                   "mb-4 mt-auto max-w-xs md:text-xl lg:mb-6"
                 )}>
                 {item.title}
@@ -152,7 +152,7 @@ export default function About() {
               <p
                 className={classes(
                   "text-sm font-normal leading-relaxed",
-                  "text-left text-zinc-500 md:text-base"
+                  "text-left text-zinc-400 md:text-base"
                 )}>
                 {item.description}
               </p>

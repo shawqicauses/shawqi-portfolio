@@ -61,9 +61,9 @@ export default function Navbar() {
   return (
     <nav
       className={classes(
-        "absolute top-0 left-0 z-10 py-8",
-        "flex w-full items-center justify-center",
-        "bg-transparent text-zinc-900"
+        "absolute top-0 left-0 z-10 bg-transparent",
+        "flex w-full items-center justify-center py-8",
+        "border border-transparent text-white"
       )}>
       <motion.div
         variants={variants.container}
@@ -101,8 +101,8 @@ export default function Navbar() {
                     "flex w-full flex-col items-center justify-center transition",
                     "text-base font-medium uppercase leading-none tracking-[0.2em]",
                     "rounded-lg border-2 border-zinc-100 p-5 outline-none",
-                    "no-underline hover:-translate-y-1 hover:text-orange-500",
-                    "text-zinc-500 focus:translate-y-0.5 focus:text-zinc-800",
+                    "no-underline hover:-translate-y-1 hover:text-orange-300",
+                    "text-zinc-400 focus:translate-y-0.5 focus:text-white",
                     "lg:w-max lg:border-0 lg:border-transparent"
                   )}>
                   {item}

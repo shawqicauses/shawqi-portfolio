@@ -54,6 +54,7 @@ export default function Work() {
 
   return (
     <section
+      id="work"
       className={classes(
         "flex flex-col items-center justify-center",
         "my-4 py-8 lg:my-10 lg:py-10 xl:my-11 xl:py-12"
@@ -102,7 +103,7 @@ export default function Work() {
             variants={variants.item}
             className={classes(
               "max-w-none text-base font-normal leading-normal",
-              "max-w-sm text-left tracking-normal text-zinc-500 xl:text-xl",
+              "max-w-sm text-left tracking-normal text-zinc-400 xl:text-xl",
               "lg:max-w-xl-2 sm:max-w-md md:max-w-xl md:text-lg lg:text-center"
             )}>
             I specialize in designing and building visual websites and web
@@ -136,7 +137,7 @@ export default function Work() {
                 <h3
                   className={classes(
                     "font-semi-bold text-left text-lg leading-none",
-                    "text-left tracking-tight text-zinc-900",
+                    "text-left tracking-tight text-white",
                     "mb-4 mt-auto max-w-xs md:text-xl"
                   )}>
                   {item.title}
@@ -147,7 +148,7 @@ export default function Work() {
                 <p
                   className={classes(
                     "text-sm font-normal leading-relaxed",
-                    "text-left text-zinc-500 md:text-base"
+                    "text-left text-zinc-400 md:text-base"
                   )}>
                   {item.description}
                 </p>

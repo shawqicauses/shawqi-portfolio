@@ -60,10 +60,9 @@ export default function Header() {
   return (
     <header
       className={classes(
-        "relative h-auto w-auto",
-        "flex items-center justify-center",
-        "xl-2:py-48 py-24 sm:py-32 lg:py-40",
-        "mb-12 lg:mb-20 xl:mb-[5.75rem]"
+        "relative flex h-auto w-auto flex-row border-b-2",
+        "items-center justify-center border-transparent border-b-zinc-800/10",
+        "xl-2:py-48  mb-12 py-24 sm:py-32 lg:mb-20 lg:py-40 xl:mb-[5.75rem]"
       )}>
       <motion.div
         variants={variants.container}
@@ -85,14 +84,14 @@ export default function Header() {
             variants={variants.item}
             className={classes(
               "text-xl-3 max-w-lg font-bold leading-tight",
-              "mb-4 text-left tracking-tight text-zinc-900 md:mb-8",
+              "mb-4 text-left tracking-tight text-white md:mb-8",
               "md:text-xl-4 xl:max-w-xl-2 xl:text-xl-5 md:max-w-xl"
             )}>
             I have great{" "}
             <span
               className={classes(
-                "underline underline-offset-4",
-                "decoration-amber-500 decoration-4"
+                "bg-gradient-to-br from-red-600 to-orange-300",
+                "bg-clip-text text-transparent no-underline"
               )}>
               experience
             </span>{" "}
@@ -102,7 +101,7 @@ export default function Header() {
             variants={variants.item}
             className={classes(
               "text-lg font-normal leading-relaxed",
-              "max-w-xl-3 mb-8 text-left text-zinc-500",
+              "max-w-xl-3 mb-8 text-left text-zinc-400",
               "lg:max-w-xl-4 md:mb-14 md:text-xl"
             )}>
             Hi there, Shawqi Hatem is my name. I am a web designer and developer
@@ -122,8 +121,8 @@ export default function Header() {
                 "gap-3 rounded-lg bg-gradient-to-br from-red-600 to-orange-300",
                 "py-5 px-8 text-base font-medium leading-none text-white outline-none",
                 "ring-2 ring-transparent ring-offset-4 ring-offset-zinc-50/0 transition-all",
-                "hover:-translate-y-1 focus:translate-y-0.5 focus:ring-red-300 md:text-lg",
-                "focus:translate-y-0 focus:ring-offset-zinc-50 sm:focus:translate-y-0.5"
+                "hover:-translate-y-1 focus:translate-y-0.5 focus:ring-orange-600 md:text-lg",
+                "focus:translate-y-0 focus:ring-offset-zinc-900 sm:focus:translate-y-0.5"
               )}>
               <DocumentTextIcon
                 strokeWidth={1.5}
@@ -139,11 +138,11 @@ export default function Header() {
               target={"blank"}
               className={classes(
                 "flex cursor-pointer items-center justify-center",
-                "gap-3 rounded-lg bg-gradient-to-br from-zinc-900 to-zinc-600",
+                "gap-3 rounded-lg bg-gradient-to-br from-zinc-800/20 to-zinc-700/20",
                 "py-5 px-8 text-base font-medium leading-none text-white outline-none",
                 "ring-2 ring-transparent ring-offset-4 ring-offset-zinc-50/0 transition-all",
-                "hover:-translate-y-1 focus:translate-y-0.5 focus:ring-zinc-300 md:text-lg",
-                "focus:translate-y-0 focus:ring-offset-zinc-50 sm:focus:translate-y-0.5"
+                "hover:-translate-y-1 focus:translate-y-0.5 focus:ring-zinc-800 md:text-lg",
+                "focus:translate-y-0 focus:ring-offset-zinc-900 sm:focus:translate-y-0.5"
               )}>
               <ExternalLinkIcon
                 strokeWidth={1.5}
@@ -160,7 +159,8 @@ export default function Header() {
           variants={variants.item}
           className={classes(
             "aspect-square max-w-xl flex-1",
-            "flex items-center justify-center"
+            "flex items-center justify-center",
+            "self-center lg:self-start"
           )}>
           <img
             src={images.file}
@@ -173,7 +173,7 @@ export default function Header() {
         className={classes(
           "absolute h-full w-full overflow-hidden",
           "top-0 left-0 bottom-auto right-auto -z-50",
-          "bg-zinc-50 transition-all"
+          "bg-zinc-900 transition-all"
         )}>
         <div
           className={classes(
@@ -187,7 +187,7 @@ export default function Header() {
                 key={index}
                 className={classes(
                   "relative h-full w-0.5 overflow-hidden",
-                  "border border-transparent bg-zinc-100/70"
+                  "border border-transparent bg-zinc-800/10"
                 )}
               />
             )
@@ -205,7 +205,7 @@ export default function Header() {
                 key={index}
                 className={classes(
                   "relative h-0.5 w-full overflow-hidden",
-                  "border border-transparent bg-zinc-100/70"
+                  "border border-transparent bg-zinc-800/10"
                 )}
               />
             )
