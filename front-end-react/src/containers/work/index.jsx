@@ -1,14 +1,56 @@
+import { motion } from "framer-motion"
 import { classes } from "../../utils/utils"
 
 export default function Work() {
   const dribble = "https://cdn.dribbble.com/users"
+
+  const variants = {
+    container: {
+      hidden: {
+        transition: {
+          delayChildren: 0,
+          staggerChildren: 0.125,
+          staggerDirection: -1
+        }
+      },
+      visible: {
+        transition: {
+          delayChildren: 0,
+          staggerChildren: 0.125,
+          staggerDirection: 1
+        }
+      }
+    },
+    item: {
+      hidden: {
+        y: 20,
+        opacity: 0,
+        transition: {
+          type: "spring",
+          stiffness: 100
+        }
+      },
+      visible: {
+        y: 0,
+        opacity: 1,
+        transition: {
+          type: "spring",
+          stiffness: 100
+        }
+      }
+    }
+  }
+
   return (
     <section
       className={classes(
         "flex flex-col items-center justify-center",
         "my-4 py-8 lg:my-10 lg:py-10 xl:my-11 xl:py-12"
       )}>
-      <div
+      <motion.div
+        variants={variants.container}
+        initial={"hidden"}
+        whileInView={"visible"}
         className={classes(
           "xl-2:max-w-xl-7 container mx-auto px-5",
           "flex flex-col items-start justify-start gap-0",
@@ -20,7 +62,8 @@ export default function Work() {
             "lg:items-center lg:justify-center",
             "mb-[3.75rem] gap-3 lg:mb-20"
           )}>
-          <h2
+          <motion.h2
+            variants={variants.item}
             className={classes(
               "font-semi-bold text-xl-2 relative leading-tight",
               "max-w-md text-left capitalize tracking-tight",
@@ -43,8 +86,9 @@ export default function Work() {
               )}>
               applications
             </span>{" "}
-          </h2>
-          <p
+          </motion.h2>
+          <motion.p
+            variants={variants.item}
             className={classes(
               "max-w-none text-base font-normal leading-normal",
               "max-w-sm text-left tracking-normal text-zinc-500 xl:text-xl",
@@ -52,9 +96,8 @@ export default function Work() {
             )}>
             I specialize in designing and building visual websites and web
             applications for your brands and products, no matter their sizes
-          </p>
+          </motion.p>
         </div>
-        {/* Products */}
         <div
           className={classes(
             "grid h-auto w-full grid-cols-1 gap-10",
@@ -106,8 +149,9 @@ export default function Work() {
               ].join(" ")
             }
           ].map((item, index) => (
-            <div
+            <motion.div
               key={index}
+              variants={variants.item}
               className={classes(
                 "group flex h-auto w-full",
                 "flex-col items-start justify-start"
@@ -142,10 +186,10 @@ export default function Work() {
                 </p>
               )) ||
                 null}
-            </div>
+            </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   )
 }
