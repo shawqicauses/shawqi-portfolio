@@ -136,7 +136,7 @@ export default function Work() {
               {(item.title && (
                 <h3
                   className={classes(
-                    "font-semi-bold text-left text-lg leading-none",
+                    "font-semi-bold text-lg leading-none",
                     "text-left tracking-tight text-white",
                     "mb-4 mt-auto max-w-xs md:text-xl"
                   )}>
