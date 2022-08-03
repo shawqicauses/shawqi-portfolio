@@ -1,24 +1,19 @@
+import { useEffect, useState } from "react"
+import { client } from "../../client"
 import { classes } from "../../utils/utils"
 
 export default function Skills() {
-  const data = [
-    {
-      title: "Front-end",
-      skills: ["HTML", "CSS", "JavaScript", "SCSS", "TypeScript", "React.JS"]
-    },
-    {
-      title: "Back-end",
-      skills: ["Node.JS", "Express.JS", "Mongo.DB", "Gatsby.JS", "Next.JS"]
-    },
-    {
-      title: "UI Design",
-      skills: ["Design Principles", "Web Design", "Figma", "Adobe XD"]
-    },
-    {
-      title: "Other Tools",
-      skills: ["Linux Basics", "Git - GitHub", "Trello", "Linear", "Notion"]
-    }
-  ]
+  const [skills, setSkills] = useState([])
+
+  useEffect(() => {
+    const query = ["*", "[_type == 'skills']"].join("")
+    client
+      .fetch(query)
+      .then(data => setSkills(data))
+      .catch(error => console.log(error))
+  }, [])
+
+  console.log(skills)
 
   const colors = [
     "from-green-600 to-teal-300 shadow-lg shadow-teal-500/50",
@@ -87,7 +82,7 @@ export default function Skills() {
             "content-start items-start justify-center",
             "sm:grid-cols-2 lg:grid-cols-4"
           )}>
-          {data.map((item, index) => (
+          {skills.map((item, index) => (
             <div
               className={classes(
                 "flex h-auto w-full flex-col flex-wrap",
