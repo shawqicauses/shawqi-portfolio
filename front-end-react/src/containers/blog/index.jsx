@@ -1,6 +1,20 @@
+import { useEffect, useState } from "react"
+import { client, urlForImage } from "../../client"
 import { classes } from "../../utils/utils"
 
 export default function Blog() {
+  const [blog, setBlog] = useState([])
+
+  useEffect(() => {
+    const query = ["*", "[_type == 'blog']"].join("")
+    client
+      .fetch(query)
+      .then(data => setBlog(data))
+      .catch(error => console.log(error))
+  }, [])
+
+  console.log(blog)
+
   return (
     <section
       id="about"
@@ -61,35 +75,7 @@ export default function Blog() {
             "content-start items-start justify-center",
             "xl-2:gap-20 md:grid-cols-2 lg:grid-cols-3 xl:gap-[3.75rem]"
           )}>
-          {[
-            {
-              image:
-                "https://epicreact.dev/improve-the-performance-of-your-react-forms/image@2x.png",
-              title: "Improve the performance of your React forms",
-              description: [
-                "You need to submit the form data the user entered, respond to server errors",
-                "validate the user input as they are typing but not before they've blurred the input please"
-              ].join(" ")
-            },
-            {
-              image:
-                "https://epicreact.dev/the-latest-ref-pattern-in-react/image@2x.png",
-              title: "Introducing the latest pattern in React",
-              description: [
-                "React made when they switched from classes and life cycle to functions and hooks",
-                "If you want to dig a little deeper on this topic, follow this blog article"
-              ].join(" ")
-            },
-            {
-              image:
-                "https://epicreact.dev/one-react-mistake-thats-slowing-you-down/image@2x.png",
-              title: "One React mistake that is slowing dows your websites",
-              description: [
-                "I like about React is that it allows me to write my components like little boxes of abstraction.",
-                "I can look at a design and draw lines around the UI elements "
-              ].join(" ")
-            }
-          ].map((item, index) => (
+          {blog.map((item, index) => (
             <div
               key={index}
               className={classes(
@@ -97,8 +83,8 @@ export default function Blog() {
                 "flex-col items-start justify-start"
               )}>
               <img
-                src={item.image}
-                alt={"Blog Article"}
+                src={urlForImage(item.image)}
+                alt={item.title}
                 className={classes(
                   "mb-8 aspect-video h-auto w-full object-center",
                   "translate-y-0 transform object-cover group-hover:scale-105",

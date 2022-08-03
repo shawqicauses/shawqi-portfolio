@@ -4,7 +4,6 @@ import { client, urlForImage } from "../../client"
 import { classes } from "../../utils/utils"
 
 export default function Work() {
-  const dribble = "https://cdn.dribbble.com/users"
   const [work, setWork] = useState([])
 
   useEffect(() => {
