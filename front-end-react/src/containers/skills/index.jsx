@@ -1,3 +1,4 @@
+import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import { client } from "../../client"
 import { classes } from "../../utils/utils"
@@ -20,6 +21,43 @@ export default function Skills() {
     "from-fuchsia-600 to-rose-300 shadow-lg shadow-rose-500/50"
   ]
 
+  const variants = {
+    container: {
+      hidden: {
+        transition: {
+          delayChildren: 0,
+          staggerChildren: 0.125,
+          staggerDirection: -1
+        }
+      },
+      visible: {
+        transition: {
+          delayChildren: 0,
+          staggerChildren: 0.125,
+          staggerDirection: 1
+        }
+      }
+    },
+    item: {
+      hidden: {
+        y: 20,
+        opacity: 0,
+        transition: {
+          type: "spring",
+          stiffness: 100
+        }
+      },
+      visible: {
+        y: 0,
+        opacity: 1,
+        transition: {
+          type: "spring",
+          stiffness: 100
+        }
+      }
+    }
+  }
+
   return (
     <section
       id="skills"
@@ -27,7 +65,10 @@ export default function Skills() {
         "flex flex-col items-center justify-center",
         "my-4 py-8 lg:my-10 lg:py-10 xl:my-11 xl:py-12"
       )}>
-      <div
+      <motion.div
+        variants={variants.container}
+        initial={"hidden"}
+        whileInView={"visible"}
         className={classes(
           "xl-2:max-w-xl-7 container mx-auto px-5",
           "flex flex-col items-start justify-start gap-0",
@@ -39,7 +80,8 @@ export default function Skills() {
             "lg:items-center lg:justify-center",
             "mb-[3.75rem] gap-3 lg:mb-20"
           )}>
-          <h2
+          <motion.h2
+            variants={variants.item}
             className={classes(
               "font-semi-bold text-xl-2 relative leading-tight",
               "max-w-xl-2 text-left capitalize tracking-tight lg:text-center",
@@ -62,8 +104,9 @@ export default function Skills() {
               matter
             </span>{" "}
             the size
-          </h2>
-          <p
+          </motion.h2>
+          <motion.p
+            variants={variants.item}
             className={classes(
               "text-base font-normal leading-normal",
               "max-w-xl-2 text-left tracking-normal text-zinc-400",
@@ -71,7 +114,7 @@ export default function Skills() {
             )}>
             Whatever the challenge you may have, we are here to help to
             transform your business ideas into innovative solutions
-          </p>
+          </motion.p>
         </div>
         <div
           className={classes(
@@ -86,7 +129,8 @@ export default function Skills() {
                 "flex h-auto w-full flex-col flex-wrap",
                 "items-start justify-start gap-4 lg:gap-6"
               )}>
-              <h3
+              <motion.h3
+                variants={variants.item}
                 className={classes(
                   "font-semi-bold h-auto w-full text-base leading-none",
                   "truncate text-left uppercase tracking-widest text-white",
@@ -94,28 +138,29 @@ export default function Skills() {
                   colors[index]
                 )}>
                 {item.title}
-              </h3>
+              </motion.h3>
               <ul
                 className={classes(
                   "flex h-auto w-full flex-col flex-wrap",
                   "items-start justify-start gap-2 lg:gap-4"
                 )}>
                 {item.skills.map((skill, index) => (
-                  <li
+                  <motion.li
                     key={index}
+                    variants={variants.item}
                     className={classes(
                       "h-auto w-full text-sm font-medium leading-none lg:text-base",
                       "truncate text-left uppercase tracking-widest text-zinc-400",
                       "rounded-xl bg-gradient-to-br from-zinc-800/20 to-zinc-700/20 p-5"
                     )}>
                     {skill}
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
             </div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   )
 }
