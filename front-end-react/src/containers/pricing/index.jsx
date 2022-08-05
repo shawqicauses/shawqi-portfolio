@@ -1,4 +1,5 @@
 import { ChevronRightIcon } from "@heroicons/react/outline"
+import { motion } from "framer-motion"
 import { classes } from "../../utils/utils"
 
 export default function Pricing() {
@@ -35,6 +36,43 @@ export default function Pricing() {
     }
   ]
 
+  const variants = {
+    container: {
+      hidden: {
+        transition: {
+          delayChildren: 0,
+          staggerChildren: 0.125,
+          staggerDirection: -1
+        }
+      },
+      visible: {
+        transition: {
+          delayChildren: 0,
+          staggerChildren: 0.125,
+          staggerDirection: 1
+        }
+      }
+    },
+    item: {
+      hidden: {
+        y: 20,
+        opacity: 0,
+        transition: {
+          type: "spring",
+          stiffness: 100
+        }
+      },
+      visible: {
+        y: 0,
+        opacity: 1,
+        transition: {
+          type: "spring",
+          stiffness: 100
+        }
+      }
+    }
+  }
+
   return (
     <section
       id="pricing"
@@ -42,7 +80,10 @@ export default function Pricing() {
         "flex flex-col items-center justify-center",
         "my-4 py-8 lg:my-10 lg:py-10 xl:my-11 xl:py-12"
       )}>
-      <div
+      <motion.div
+        variants={variants.container}
+        initial={"hidden"}
+        whileInView={"visible"}
         className={classes(
           "xl-2:max-w-xl-7 container mx-auto px-5",
           "flex flex-col items-start justify-start gap-0",
@@ -54,7 +95,8 @@ export default function Pricing() {
             "lg:items-center lg:justify-center",
             "mb-[3.75rem] gap-3 lg:mb-20"
           )}>
-          <h2
+          <motion.h2
+            variants={variants.item}
             className={classes(
               "font-semi-bold text-xl-2 relative leading-tight",
               "max-w-xl-2 text-left capitalize tracking-tight lg:text-center",
@@ -77,8 +119,9 @@ export default function Pricing() {
               project's
             </span>{" "}
             details
-          </h2>
-          <p
+          </motion.h2>
+          <motion.p
+            variants={variants.item}
             className={classes(
               "text-base font-normal leading-normal",
               "max-w-xl-2 text-left tracking-normal text-zinc-400",
@@ -86,9 +129,10 @@ export default function Pricing() {
             )}>
             Every digital idea or project always starts as a website that is
             able to fetch potential people and re-define them as clients
-          </p>
+          </motion.p>
         </div>
-        <div
+        <motion.div
+          variants={variants.item}
           className={classes(
             "grid h-auto w-full grid-cols-1",
             "rounded-xl bg-zinc-800/20 lg:grid-cols-2",
@@ -96,7 +140,8 @@ export default function Pricing() {
             "p-5 md:gap-10 md:p-10 xl:gap-[3.75rem] xl:p-[3.75rem]"
           )}>
           {data.map((item, index) => (
-            <div
+            <motion.div
+              variants={variants.item}
               key={index}
               className={classes(
                 "flex w-full flex-col gap-8 rounded-xl p-5 md:gap-10",
@@ -108,7 +153,8 @@ export default function Pricing() {
                     ].join(" ")
                   : "bg-transparent"
               )}>
-              <p
+              <motion.p
+                variants={variants.item}
                 className={classes(
                   "flex h-auto w-full flex-row",
                   "items-start justify-start gap-2"
@@ -128,30 +174,33 @@ export default function Pricing() {
                   )}>
                   {item.price}
                 </span>
-              </p>
+              </motion.p>
               <div
                 className={classes(
                   "flex h-auto w-full flex-col",
                   "items-start justify-start gap-4 md:gap-5"
                 )}>
-                <h3
+                <motion.h3
+                  variants={variants.item}
                   className={classes(
                     "font-semi-bold text-xl leading-none",
                     "text-left tracking-tight text-white",
                     "md:text-xl-2 mt-auto max-w-xs capitalize"
                   )}>
                   {item.title}
-                </h3>
-                <p
+                </motion.h3>
+                <motion.p
+                  variants={variants.item}
                   className={classes(
                     "text-base font-normal leading-relaxed",
                     "text-left normal-case md:text-lg",
                     item.featured ? "text-orange-100" : "text-zinc-400"
                   )}>
                   {item.description}
-                </p>
+                </motion.p>
               </div>
-              <button
+              <motion.button
+                variants={variants.item}
                 className={classes(
                   "flex w-full cursor-pointer items-center justify-center",
                   "gap-3 py-5 px-8 text-base font-medium leading-none outline-none",
@@ -169,7 +218,7 @@ export default function Pricing() {
                       ].join(" ")
                 )}>
                 Get Started
-              </button>
+              </motion.button>
               <ul
                 className={classes(
                   "flex h-auto w-full flex-col gap-0",
@@ -177,8 +226,9 @@ export default function Pricing() {
                   item.featured ? "divide-orange-100/20" : "divide-zinc-600/20"
                 )}>
                 {item.features.map((feature, index) => (
-                  <li
+                  <motion.li
                     key={index}
+                    variants={variants.item}
                     className={classes(
                       "w-full text-sm font-normal leading-normal",
                       "gap-3 py-3 text-left md:gap-4 md:py-4 md:text-base",
@@ -193,13 +243,13 @@ export default function Pricing() {
                       )}
                     />
                     {feature}
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
           ))}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   )
 }
