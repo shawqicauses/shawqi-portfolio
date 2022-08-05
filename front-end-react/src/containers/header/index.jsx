@@ -59,10 +59,11 @@ export default function Header() {
 
   return (
     <header
+      id="header"
       className={classes(
-        "relative flex h-auto w-auto flex-row border-b-2",
+        "relative mb-12 flex h-auto w-auto flex-row border-b-2 py-24",
         "items-center justify-center border-transparent border-b-zinc-800/10",
-        "xl-2:py-48  mb-12 py-24 sm:py-32 lg:mb-20 lg:py-40 xl:mb-[5.75rem]"
+        "xl-2:py-48 sm:py-32 lg:mb-20 lg:py-40 xl:mb-[5.75rem]"
       )}>
       <motion.div
         variants={variants.container}
@@ -118,7 +119,7 @@ export default function Header() {
             <button
               className={classes(
                 "flex cursor-pointer items-center justify-center",
-                "gap-3 rounded-lg bg-gradient-to-br from-red-600 to-orange-300",
+                "gap-3 rounded-xl bg-gradient-to-br from-red-600 to-orange-300",
                 "py-5 px-8 text-base font-medium leading-none text-white outline-none",
                 "ring-2 ring-transparent ring-offset-4 ring-offset-zinc-50/0 transition-all",
                 "hover:-translate-y-1 focus:translate-y-0.5 focus:ring-orange-600 md:text-lg",
@@ -138,7 +139,7 @@ export default function Header() {
               target={"blank"}
               className={classes(
                 "flex cursor-pointer items-center justify-center",
-                "gap-3 rounded-lg bg-gradient-to-br from-zinc-800/20 to-zinc-700/20",
+                "gap-3 rounded-xl bg-gradient-to-br from-zinc-800/20 to-zinc-700/20",
                 "py-5 px-8 text-base font-medium leading-none text-white outline-none",
                 "ring-2 ring-transparent ring-offset-4 ring-offset-zinc-50/0 transition-all",
                 "hover:-translate-y-1 focus:translate-y-0.5 focus:ring-zinc-800 md:text-lg",

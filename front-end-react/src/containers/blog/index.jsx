@@ -13,11 +13,9 @@ export default function Blog() {
       .catch(error => console.log(error))
   }, [])
 
-  console.log(blog)
-
   return (
     <section
-      id="about"
+      id="blog"
       className={classes(
         "flex flex-col items-center justify-center",
         "my-4 py-8 lg:my-10 lg:py-10 xl:my-11 xl:py-12"
@@ -37,9 +35,8 @@ export default function Blog() {
           <h2
             className={classes(
               "font-semi-bold text-xl-2 relative leading-tight",
-              "max-w-md text-left capitalize tracking-tight",
-              "xl:text-xl-4 md:text-xl-3 lg:max-w-xl-2 md:max-w-lg",
-              "xl:max-w-xl-3 lg:text-center"
+              "max-w-xl-2 text-left capitalize tracking-tight lg:text-center",
+              "xl:text-xl-4 md:text-xl-3 lg:max-w-xl-2 xl:max-w-xl-3"
             )}>
             I make the web development area a{" "}
             <span
@@ -61,9 +58,9 @@ export default function Blog() {
           </h2>
           <p
             className={classes(
-              "max-w-none text-base font-normal leading-normal",
-              "max-w-sm text-left tracking-normal text-zinc-400 xl:text-xl",
-              "lg:max-w-xl-2 sm:max-w-md md:max-w-xl md:text-lg lg:text-center"
+              "text-base font-normal leading-normal",
+              "max-w-xl-2 text-left tracking-normal text-zinc-400",
+              "md:text-lg lg:text-center xl:text-xl"
             )}>
             I love writing articles around the web design and development topic
             to improve my skills and collaborating with others
@@ -88,7 +85,7 @@ export default function Blog() {
                 className={classes(
                   "mb-8 aspect-video h-auto w-full object-center",
                   "translate-y-0 transform object-cover group-hover:scale-105",
-                  "rounded-xl-2 transition duration-150 ease-linear lg:mb-10"
+                  "rounded-xl transition duration-150 ease-linear lg:mb-10"
                 )}
               />
               <span

@@ -3,7 +3,7 @@ import { classes } from "../../utils/utils"
 import { Logo } from "../components"
 
 export default function Navbar() {
-  const links = ["Home", "About", "Work", "Skills", "Contact"]
+  const links = ["About", "Work", "Skills", "Blog", "Pricing", "Contact"]
 
   const variants = {
     container: {
@@ -100,7 +100,7 @@ export default function Navbar() {
                   className={classes(
                     "flex w-full flex-col items-center justify-center transition",
                     "text-base font-medium uppercase leading-none tracking-[0.2em]",
-                    "rounded-lg border-2 border-zinc-100 p-5 outline-none",
+                    "rounded-xl border-2 border-zinc-100 p-5 outline-none",
                     "no-underline hover:-translate-y-1 hover:text-orange-300",
                     "text-zinc-400 focus:translate-y-0.5 focus:text-white",
                     "lg:w-max lg:border-0 lg:border-transparent"

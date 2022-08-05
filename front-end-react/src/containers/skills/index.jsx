@@ -13,8 +13,6 @@ export default function Skills() {
       .catch(error => console.log(error))
   }, [])
 
-  console.log(skills)
-
   const colors = [
     "from-green-600 to-teal-300 shadow-lg shadow-teal-500/50",
     "from-cyan-600 to-blue-300 shadow-lg shadow-blue-500/50",
@@ -44,9 +42,8 @@ export default function Skills() {
           <h2
             className={classes(
               "font-semi-bold text-xl-2 relative leading-tight",
-              "max-w-md text-left capitalize tracking-tight",
-              "xl:text-xl-4 md:text-xl-3 lg:max-w-xl-2 md:max-w-lg",
-              "xl:max-w-xl-3 lg:text-center"
+              "max-w-xl-2 text-left capitalize tracking-tight lg:text-center",
+              "xl:text-xl-4 md:text-xl-3 lg:max-w-xl-2 xl:max-w-xl-3"
             )}>
             I build that{" "}
             <span
@@ -68,9 +65,9 @@ export default function Skills() {
           </h2>
           <p
             className={classes(
-              "max-w-none text-base font-normal leading-normal",
-              "max-w-sm text-left tracking-normal text-zinc-400 xl:text-xl",
-              "lg:max-w-xl-2 sm:max-w-md md:max-w-xl md:text-lg lg:text-center"
+              "text-base font-normal leading-normal",
+              "max-w-xl-2 text-left tracking-normal text-zinc-400",
+              "md:text-lg lg:text-center xl:text-xl"
             )}>
             Whatever the challenge you may have, we are here to help to
             transform your business ideas into innovative solutions
@@ -84,6 +81,7 @@ export default function Skills() {
           )}>
           {skills.map((item, index) => (
             <div
+              key={index}
               className={classes(
                 "flex h-auto w-full flex-col flex-wrap",
                 "items-start justify-start gap-4 lg:gap-6"
@@ -92,7 +90,7 @@ export default function Skills() {
                 className={classes(
                   "font-semi-bold h-auto w-full text-base leading-none",
                   "truncate text-left uppercase tracking-widest text-white",
-                  "rounded-lg bg-gradient-to-br p-5",
+                  "rounded-xl bg-gradient-to-br p-5",
                   colors[index]
                 )}>
                 {item.title}
@@ -102,12 +100,13 @@ export default function Skills() {
                   "flex h-auto w-full flex-col flex-wrap",
                   "items-start justify-start gap-2 lg:gap-4"
                 )}>
-                {item.skills.map(skill => (
+                {item.skills.map((skill, index) => (
                   <li
+                    key={index}
                     className={classes(
                       "h-auto w-full text-sm font-medium leading-none lg:text-base",
                       "truncate text-left uppercase tracking-widest text-zinc-400",
-                      "rounded-lg bg-gradient-to-br from-zinc-800/20 to-zinc-700/20 p-5"
+                      "rounded-xl bg-gradient-to-br from-zinc-800/20 to-zinc-700/20 p-5"
                     )}>
                     {skill}
                   </li>
