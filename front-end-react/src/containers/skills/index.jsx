@@ -87,7 +87,7 @@ export default function Skills() {
               "max-w-xl-2 text-left capitalize tracking-tight lg:text-center",
               "xl:text-xl-4 md:text-xl-3 lg:max-w-xl-2 xl:max-w-xl-3"
             )}>
-            I build that{" "}
+            I build{" "}
             <span
               className={classes(
                 "bg-gradient-to-br from-red-600 to-orange-300",
@@ -95,15 +95,15 @@ export default function Skills() {
               )}>
               experiences
             </span>{" "}
-            connect to audience and brands, no{" "}
+            that connect to audiences and brands, whatever the{" "}
             <span
               className={classes(
                 "bg-gradient-to-br from-red-600 to-orange-300",
                 "bg-clip-text text-transparent no-underline"
               )}>
-              matter
+              size
             </span>{" "}
-            the size
+            is
           </motion.h2>
           <motion.p
             variants={variants.item}
@@ -112,7 +112,7 @@ export default function Skills() {
               "max-w-xl-2 text-left tracking-normal text-zinc-400",
               "md:text-lg lg:text-center xl:text-xl"
             )}>
-            Whatever the challenge you may have, we are here to help to
+            Don't mind the challenges you have. I am here to help you to
             transform your business ideas into innovative solutions
           </motion.p>
         </div>

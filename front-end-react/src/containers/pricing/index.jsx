@@ -8,13 +8,13 @@ export default function Pricing() {
       featured: false,
       title: "Essential website",
       description: [
-        "This plan is the perfect solution for your professional business mindset",
-        "if you already have a startup consists of digital ideas or projects, so hurry up!"
+        "This plan is the perfect solution for your essential business mindset",
+        "if you already have a startup consisting of digital ideas or projects, so hurry up!"
       ].join(" "),
       price: 150,
       features: [
-        "Website consists of one pages",
-        "High support of Accessibility",
+        "The website consists of one page",
+        "High support for Accessibility",
         "High optimization check of SEO"
       ]
     },
@@ -23,15 +23,15 @@ export default function Pricing() {
       title: "Professional website",
       description: [
         "This plan is the perfect solution for your professional business mindset",
-        "if you already have a startup consists of digital ideas or projects, so hurry up!"
+        "if you already have a startup consisting of digital ideas or projects, so hurry up!"
       ].join(" "),
       price: 350,
       features: [
         "Website consists of three pages",
-        "High support of Accessibility",
+        "High support for Accessibility",
         "High optimization check of SEO",
-        "Access to website's repository",
-        "Access to website's design file"
+        "Access to the website's repository",
+        "Access to the website's design file"
       ]
     }
   ]
@@ -127,12 +127,11 @@ export default function Pricing() {
               "max-w-xl-2 text-left tracking-normal text-zinc-400",
               "md:text-lg lg:text-center xl:text-xl"
             )}>
-            Every digital idea or project always starts as a website that is
-            able to fetch potential people and re-define them as clients
+            Every digital idea or project starts as a website that can fetch
+            potential people and re-define them as clients that scale with you
           </motion.p>
         </div>
-        <motion.div
-          variants={variants.item}
+        <div
           className={classes(
             "grid h-auto w-full grid-cols-1",
             "rounded-xl bg-zinc-800/20 lg:grid-cols-2",
@@ -140,8 +139,7 @@ export default function Pricing() {
             "p-5 md:gap-10 md:p-10 xl:gap-[3.75rem] xl:p-[3.75rem]"
           )}>
           {data.map((item, index) => (
-            <motion.div
-              variants={variants.item}
+            <div
               key={index}
               className={classes(
                 "flex w-full flex-col gap-8 rounded-xl p-5 md:gap-10",
@@ -246,9 +244,9 @@ export default function Pricing() {
                   </motion.li>
                 ))}
               </ul>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </motion.div>
     </section>
   )

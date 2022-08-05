@@ -106,7 +106,7 @@ export default function Header() {
               "lg:max-w-xl-4 md:mb-14 md:text-xl"
             )}>
             Hi there, Shawqi Hatem is my name. I am a web designer and developer
-            who has great experience which has been built during over four years
+            who has the experience which has been built during over four years
             of learning and practicing
           </motion.p>
           <motion.div

@@ -105,8 +105,8 @@ export default function Blog() {
               "max-w-xl-2 text-left tracking-normal text-zinc-400",
               "md:text-lg lg:text-center xl:text-xl"
             )}>
-            I love writing articles around the web design and development topic
-            to improve my skills and collaborating with others
+            I love writing blog articles about web design and development topics
+            to improve my skills and collaborate with others.
           </motion.p>
         </div>
         <div

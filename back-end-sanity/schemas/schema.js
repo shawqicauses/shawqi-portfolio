@@ -1,7 +1,5 @@
-// First, we must import the schema creator
-import createSchema from "part:@sanity/base/schema-creator"
-
 import schemaTypes from "all:part:@sanity/base/schema-type"
+import createSchema from "part:@sanity/base/schema-creator"
 import about from "./about"
 import blog from "./blog"
 import pricing from "./pricing"

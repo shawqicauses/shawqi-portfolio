@@ -80,7 +80,7 @@ export default function About() {
               "max-w-xl-2 text-left capitalize tracking-tight lg:text-center",
               "xl:text-xl-4 md:text-xl-3 lg:max-w-xl-2 xl:max-w-xl-3"
             )}>
-            I clearly know that good{" "}
+            I know that engineered{" "}
             <span
               className={classes(
                 "bg-gradient-to-br from-red-600 to-orange-300",
@@ -105,8 +105,9 @@ export default function About() {
               "max-w-xl-2 text-left tracking-normal text-zinc-400",
               "md:text-lg lg:text-center xl:text-xl"
             )}>
-            Trust me, this section is not a promotion for me as a professional,
-            it is just what I really know and have a lot experience in
+            Trust me. The section you are discovering is not a promotion for me
+            as a professional. It is just what I know and has a lot of
+            experience
           </motion.p>
         </div>
         <div
@@ -115,48 +116,50 @@ export default function About() {
             "content-start items-start justify-center",
             "xl-2:gap-20 md:grid-cols-2 lg:grid-cols-3 xl:gap-[3.75rem]"
           )}>
-          {about.map((item, index) => (
-            <motion.div
-              key={index}
-              variants={variants.item}
-              className={classes(
-                "group flex h-auto w-full",
-                "flex-col items-start justify-start"
-              )}>
-              <img
-                src={urlForImage(item.image)}
-                alt={item.title}
+          {about
+            .sort((a, b) => a.order > b.order)
+            .map((item, index) => (
+              <motion.div
+                key={index}
+                variants={variants.item}
                 className={classes(
-                  "mb-8 aspect-video h-auto w-full object-center",
-                  "translate-y-0 transform object-cover group-hover:scale-105",
-                  "rounded-xl transition duration-150 ease-linear lg:mb-10"
-                )}
-              />
-              <span
-                className={classes(
-                  "font-monospace text-base font-medium",
-                  "uppercase leading-none tracking-normal",
-                  "mb-4 text-zinc-400 md:text-lg lg:mb-6"
+                  "group flex h-auto w-full",
+                  "flex-col items-start justify-start"
                 )}>
-                {index + 1 >= 10 ? index : "0" + (index + 1)}
-              </span>
-              <h3
-                className={classes(
-                  "font-semi-bold text-lg leading-none",
-                  "text-left tracking-tight text-white",
-                  "mb-4 mt-auto max-w-xs md:text-xl lg:mb-6"
-                )}>
-                {item.title}
-              </h3>
-              <p
-                className={classes(
-                  "text-sm font-normal leading-relaxed",
-                  "text-left text-zinc-400 md:text-base"
-                )}>
-                {item.description}
-              </p>
-            </motion.div>
-          ))}
+                <img
+                  src={urlForImage(item.image)}
+                  alt={item.title}
+                  className={classes(
+                    "mb-8 aspect-video h-auto w-full object-center",
+                    "translate-y-0 transform object-cover group-hover:scale-105",
+                    "rounded-xl transition duration-150 ease-linear lg:mb-10"
+                  )}
+                />
+                <span
+                  className={classes(
+                    "font-monospace text-base font-medium",
+                    "uppercase leading-none tracking-normal",
+                    "mb-4 text-zinc-400 md:text-lg lg:mb-6"
+                  )}>
+                  {index + 1 >= 10 ? index : "0" + (index + 1)}
+                </span>
+                <h3
+                  className={classes(
+                    "font-semi-bold text-lg leading-none",
+                    "text-left tracking-tight text-white",
+                    "mb-4 mt-auto max-w-xs md:text-xl lg:mb-6"
+                  )}>
+                  {item.title}
+                </h3>
+                <p
+                  className={classes(
+                    "text-sm font-normal leading-relaxed",
+                    "text-left text-zinc-400 md:text-base"
+                  )}>
+                  {item.description}
+                </p>
+              </motion.div>
+            ))}
         </div>
       </motion.div>
     </section>

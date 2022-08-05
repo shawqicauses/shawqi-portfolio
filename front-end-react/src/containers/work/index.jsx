@@ -80,7 +80,7 @@ export default function Work() {
               "max-w-xl-2 text-left capitalize tracking-tight lg:text-center",
               "xl:text-xl-4 md:text-xl-3 lg:max-w-xl-2 xl:max-w-xl-3"
             )}>
-            I bring things that is{" "}
+            I bring things that are{" "}
             <span
               className={classes(
                 "bg-gradient-to-br from-red-600 to-orange-300",
