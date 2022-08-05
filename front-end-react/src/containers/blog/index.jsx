@@ -1,3 +1,4 @@
+import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import { client, urlForImage } from "../../client"
 import { classes } from "../../utils/utils"
@@ -13,6 +14,43 @@ export default function Blog() {
       .catch(error => console.log(error))
   }, [])
 
+  const variants = {
+    container: {
+      hidden: {
+        transition: {
+          delayChildren: 0,
+          staggerChildren: 0.125,
+          staggerDirection: -1
+        }
+      },
+      visible: {
+        transition: {
+          delayChildren: 0,
+          staggerChildren: 0.125,
+          staggerDirection: 1
+        }
+      }
+    },
+    item: {
+      hidden: {
+        y: 20,
+        opacity: 0,
+        transition: {
+          type: "spring",
+          stiffness: 100
+        }
+      },
+      visible: {
+        y: 0,
+        opacity: 1,
+        transition: {
+          type: "spring",
+          stiffness: 100
+        }
+      }
+    }
+  }
+
   return (
     <section
       id="blog"
@@ -20,7 +58,10 @@ export default function Blog() {
         "flex flex-col items-center justify-center",
         "my-4 py-8 lg:my-10 lg:py-10 xl:my-11 xl:py-12"
       )}>
-      <div
+      <motion.div
+        variants={variants.container}
+        initial={"hidden"}
+        whileInView={"visible"}
         className={classes(
           "xl-2:max-w-xl-7 container mx-auto px-5",
           "flex flex-col items-start justify-start gap-0",
@@ -32,7 +73,8 @@ export default function Blog() {
             "lg:items-center lg:justify-center",
             "mb-[3.75rem] gap-3 lg:mb-20"
           )}>
-          <h2
+          <motion.h2
+            variants={variants.item}
             className={classes(
               "font-semi-bold text-xl-2 relative leading-tight",
               "max-w-xl-2 text-left capitalize tracking-tight lg:text-center",
@@ -55,8 +97,9 @@ export default function Blog() {
               articles
             </span>{" "}
             with passion
-          </h2>
-          <p
+          </motion.h2>
+          <motion.p
+            variants={variants.item}
             className={classes(
               "text-base font-normal leading-normal",
               "max-w-xl-2 text-left tracking-normal text-zinc-400",
@@ -64,7 +107,7 @@ export default function Blog() {
             )}>
             I love writing articles around the web design and development topic
             to improve my skills and collaborating with others
-          </p>
+          </motion.p>
         </div>
         <div
           className={classes(
@@ -79,7 +122,8 @@ export default function Blog() {
                 "group flex h-auto w-full",
                 "flex-col items-start justify-start"
               )}>
-              <img
+              <motion.img
+                variants={variants.item}
                 src={urlForImage(item.image)}
                 alt={item.title}
                 className={classes(
@@ -88,33 +132,36 @@ export default function Blog() {
                   "rounded-xl transition duration-150 ease-linear lg:mb-10"
                 )}
               />
-              <span
+              <motion.span
+                variants={variants.item}
                 className={classes(
                   "font-monospace text-base font-medium",
                   "uppercase leading-none tracking-normal",
                   "mb-4 text-zinc-400 md:text-lg lg:mb-6"
                 )}>
                 {index + 1 >= 10 ? index : "0" + (index + 1)}
-              </span>
-              <h3
+              </motion.span>
+              <motion.h3
+                variants={variants.item}
                 className={classes(
                   "font-semi-bold text-lg leading-normal",
                   "text-left tracking-tight text-white",
                   "mb-4 mt-auto max-w-xs md:text-xl lg:mb-6"
                 )}>
                 {item.title}
-              </h3>
-              <p
+              </motion.h3>
+              <motion.p
+                variants={variants.item}
                 className={classes(
                   "text-sm font-normal leading-relaxed",
                   "text-left text-zinc-400 md:text-base"
                 )}>
                 {item.description}
-              </p>
+              </motion.p>
             </div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   )
 }
