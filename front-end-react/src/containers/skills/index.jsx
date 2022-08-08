@@ -1,7 +1,7 @@
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import { client } from "../../client"
-import { classes } from "../../utils/utils"
+import { classes, variants } from "../../utils/utils"
 
 export default function Skills() {
   const [skills, setSkills] = useState([])
@@ -20,43 +20,6 @@ export default function Skills() {
     "from-indigo-600 to-purple-300 shadow-lg shadow-purple-500/50",
     "from-fuchsia-600 to-rose-300 shadow-lg shadow-rose-500/50"
   ]
-
-  const variants = {
-    container: {
-      hidden: {
-        transition: {
-          delayChildren: 0,
-          staggerChildren: 0.125,
-          staggerDirection: -1
-        }
-      },
-      visible: {
-        transition: {
-          delayChildren: 0,
-          staggerChildren: 0.125,
-          staggerDirection: 1
-        }
-      }
-    },
-    item: {
-      hidden: {
-        y: 20,
-        opacity: 0,
-        transition: {
-          type: "spring",
-          stiffness: 100
-        }
-      },
-      visible: {
-        y: 0,
-        opacity: 1,
-        transition: {
-          type: "spring",
-          stiffness: 100
-        }
-      }
-    }
-  }
 
   return (
     <section
