@@ -1,4 +1,5 @@
-import { classes } from "../../utils/utils"
+import { motion } from "framer-motion"
+import { classes, variants } from "../../utils/utils"
 
 export default function Contact() {
   const inputs = [
@@ -41,7 +42,10 @@ export default function Contact() {
         "flex flex-col items-center justify-center",
         "my-4 py-8 lg:my-10 lg:py-10 xl:my-11 xl:py-12"
       )}>
-      <div
+      <motion.div
+        variants={variants.container}
+        initial={"hidden"}
+        whileInView={"visible"}
         className={classes(
           "xl-2:max-w-xl-7 container mx-auto px-5",
           "flex flex-col items-start justify-start gap-0",
@@ -53,7 +57,8 @@ export default function Contact() {
             "lg:items-center lg:justify-center",
             "mb-[3.75rem] gap-3 lg:mb-20"
           )}>
-          <h2
+          <motion.h2
+            variants={variants.item}
             className={classes(
               "font-semi-bold text-xl-2 relative leading-tight",
               "max-w-xl-2 text-left capitalize tracking-tight lg:text-center",
@@ -75,8 +80,9 @@ export default function Contact() {
               )}>
               form
             </span>
-          </h2>
-          <p
+          </motion.h2>
+          <motion.p
+            variants={variants.item}
             className={classes(
               "text-base font-normal leading-normal",
               "max-w-xl-2 text-left tracking-normal text-zinc-400",
@@ -84,7 +90,7 @@ export default function Contact() {
             )}>
             On this humble website, hearing from users like you is an essential
             thing to do. So, don't think a lot and send honest feedback
-          </p>
+          </motion.p>
         </div>
         <form
           className={classes(
@@ -99,17 +105,19 @@ export default function Contact() {
                 "items-start justify-start lg:gap-4",
                 type === "textarea" ? "col-span-full" : ""
               )}>
-              <label
+              <motion.label
                 htmlFor={id}
+                variants={variants.item}
                 className={classes(
                   "w-auto text-lg font-medium leading-none",
                   "text-left tracking-tight text-white",
                   "no-underling sr-only not-italic lg:text-xl"
                 )}>
                 {label}
-              </label>
+              </motion.label>
               {type === "textarea" ? (
-                <textarea
+                <motion.textarea
+                  variants={variants.item}
                   id={id}
                   name={name}
                   placeholder={label}
@@ -123,11 +131,12 @@ export default function Contact() {
                   )}
                 />
               ) : (
-                <input
+                <motion.input
                   type={type}
                   id={id}
                   name={name}
                   placeholder={label}
+                  variants={variants.item}
                   className={classes(
                     "text-base font-normal leading-normal text-zinc-100 lg:text-lg",
                     "rounded-lg border-2 border-zinc-800 bg-zinc-800/40",
@@ -140,7 +149,8 @@ export default function Contact() {
               )}
             </div>
           ))}
-          <button
+          <motion.button
+            variants={variants.item}
             className={classes(
               "col-span-full flex w-full cursor-pointer items-center justify-center",
               "gap-3 rounded-xl bg-gradient-to-br from-red-600 to-orange-300",
@@ -150,9 +160,9 @@ export default function Contact() {
               "focus:translate-y-0 focus:ring-offset-zinc-900 sm:focus:translate-y-0.5"
             )}>
             Submit
-          </button>
+          </motion.button>
         </form>
-      </div>
+      </motion.div>
     </section>
   )
 }
