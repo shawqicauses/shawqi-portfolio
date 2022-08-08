@@ -1,40 +1,19 @@
 import { ChevronRightIcon } from "@heroicons/react/outline"
 import { motion } from "framer-motion"
+import { useEffect, useState } from "react"
+import { client } from "../../client"
 import { classes, variants } from "../../utils/utils"
 
 export default function Pricing() {
-  const data = [
-    {
-      featured: false,
-      title: "Essential website",
-      description: [
-        "This plan is the perfect solution for your essential business mindset",
-        "if you already have a startup consisting of digital ideas or projects, so hurry up!"
-      ].join(" "),
-      price: 150,
-      features: [
-        "The website consists of one page",
-        "High support for Accessibility",
-        "High optimization check of SEO"
-      ]
-    },
-    {
-      featured: true,
-      title: "Professional website",
-      description: [
-        "This plan is the perfect solution for your professional business mindset",
-        "if you already have a startup consisting of digital ideas or projects, so hurry up!"
-      ].join(" "),
-      price: 350,
-      features: [
-        "Website consists of three pages",
-        "High support for Accessibility",
-        "High optimization check of SEO",
-        "Access to the website's repository",
-        "Access to the website's design file"
-      ]
-    }
-  ]
+  const [pricing, setPricing] = useState([])
+
+  useEffect(() => {
+    const query = ["*", "[_type == 'pricing']"].join("")
+    client
+      .fetch(query)
+      .then(data => setPricing(data))
+      .catch(error => console.log(error))
+  }, [])
 
   return (
     <section
@@ -101,7 +80,7 @@ export default function Pricing() {
             "content-start items-start justify-start gap-5",
             "p-5 md:gap-10 md:p-10 xl:gap-[3.75rem] xl:p-[3.75rem]"
           )}>
-          {data.map((item, index) => (
+          {pricing.map((item, index) => (
             <div
               key={index}
               className={classes(
