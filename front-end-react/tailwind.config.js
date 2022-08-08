@@ -102,5 +102,5 @@ module.exports = {
     },
     dropShadow: {}
   },
-  plugins: []
+  plugins: [require("@tailwindcss/forms")]
 }

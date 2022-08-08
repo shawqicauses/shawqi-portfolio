@@ -1,7 +1,14 @@
 import { Fragment } from "react"
 import { Helmet } from "react-helmet"
 import { Navbar } from "../components/components"
-import { About, Blog, Header, Pricing, Work } from "../containers/containers"
+import {
+  About,
+  Blog,
+  Contact,
+  Header,
+  Pricing,
+  Work
+} from "../containers/containers"
 import Skills from "../containers/skills"
 
 export default function App() {
@@ -25,6 +32,7 @@ export default function App() {
       <Skills />
       <Blog />
       <Pricing />
+      <Contact />
     </Fragment>
   )
 }
