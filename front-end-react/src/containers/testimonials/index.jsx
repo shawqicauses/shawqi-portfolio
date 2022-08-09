@@ -1,5 +1,6 @@
 import { CursorClickIcon } from "@heroicons/react/outline"
-import { classes } from "../../utils/utils"
+import { motion } from "framer-motion"
+import { classes, variants } from "../../utils/utils"
 
 export default function Testimonials() {
   const data = [
@@ -23,7 +24,10 @@ export default function Testimonials() {
         "flex flex-col items-center justify-center",
         "my-4 py-8 lg:my-10 lg:py-10 xl:my-11 xl:py-12"
       )}>
-      <div
+      <motion.div
+        variants={variants.container}
+        initial={"hidden"}
+        whileInView={"visible"}
         className={classes(
           "xl-2:max-w-xl-7 container mx-auto px-5",
           "flex flex-col items-start justify-start gap-0",
@@ -36,18 +40,20 @@ export default function Testimonials() {
             "m-0 cursor-move overflow-x-auto p-0"
           )}>
           {data.map((item, index) => (
-            <div
+            <motion.div
               key={index}
+              variants={variants.item}
               className={classes(
                 "h-auto w-full shrink-0 snap-start",
                 "grid grid-cols-1 items-center justify-center",
                 "rounded-xl bg-gradient-to-br p-5 md:p-10",
-                "gap-10 lg:gap-[3.75rem] xl:grid-cols-3",
+                "gap-10 lg:grid-cols-3 lg:gap-[3.75rem]",
                 colors[index]
               )}>
-              <img
+              <motion.img
                 src={item.image}
                 alt={index}
+                variants={variants.item}
                 className={classes(
                   "aspect-video h-auto w-full rounded-xl",
                   "object-cover object-center grayscale filter",
@@ -67,7 +73,8 @@ export default function Testimonials() {
                     "fill-transparent stroke-white/40"
                   )}
                 />
-                <p
+                <motion.p
+                  variants={variants.item}
                   className={classes(
                     "text-left text-lg font-normal leading-relaxed",
                     "xl:text-xl-2 text-white md:text-xl",
@@ -77,30 +84,32 @@ export default function Testimonials() {
                   worked with in my entire career. He delivers stunning web
                   design and development products which have helped me so much
                   in my job!
-                </p>
+                </motion.p>
                 <div>
-                  <h4
+                  <motion.h4
+                    variants={variants.item}
                     className={classes(
                       "text-left text-base font-medium leading-none",
                       "text-white md:text-lg xl:text-xl",
                       "mb-2 not-italic no-underline lg:mb-3"
                     )}>
                     Ahmed Mohammed
-                  </h4>
-                  <p
+                  </motion.h4>
+                  <motion.p
+                    variants={variants.item}
                     className={classes(
                       "text-left text-xs font-medium leading-none",
-                      "text-white/70 md:text-base xl:text-lg",
+                      "text-white/70 md:text-sm xl:text-base",
                       "uppercase not-italic tracking-widest no-underline"
                     )}>
                     Motion Graphic Designer
-                  </p>
+                  </motion.p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   )
 }
