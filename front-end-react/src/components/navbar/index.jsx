@@ -3,7 +3,7 @@ import { classes, variants } from "../../utils/utils"
 import { Logo } from "../components"
 
 export default function Navbar() {
-  const links = ["About", "Work", "Skills", "Blog", "Pricing", "Contact"]
+  const links = ["About", "Work", "Skills", "Blog", "Pricing", "Testimonials"]
 
   return (
     <nav

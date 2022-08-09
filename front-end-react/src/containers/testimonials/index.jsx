@@ -1,14 +1,19 @@
 import { CursorClickIcon } from "@heroicons/react/outline"
 import { motion } from "framer-motion"
+import { useEffect, useState } from "react"
+import { client, urlForImage } from "../../client"
 import { classes, variants } from "../../utils/utils"
 
 export default function Testimonials() {
-  const data = [
-    { image: "https://images.unsplash.com/photo-1659240498821-6d919dab2c0a" },
-    { image: "https://images.unsplash.com/photo-1659240498821-6d919dab2c0a" },
-    { image: "https://images.unsplash.com/photo-1659240498821-6d919dab2c0a" },
-    { image: "https://images.unsplash.com/photo-1659240498821-6d919dab2c0a" }
-  ]
+  const [testimonials, setTestimonials] = useState([])
+
+  useEffect(() => {
+    const query = ["*", "[_type == 'testimonials']"].join("")
+    client
+      .fetch(query)
+      .then(data => setTestimonials(data))
+      .catch(error => console.log(error))
+  }, [])
 
   const colors = [
     "from-green-600 to-teal-300 shadow-lg shadow-teal-500/10",
@@ -39,7 +44,7 @@ export default function Testimonials() {
             "snap-x snap-mandatory flex-row lg:gap-6",
             "m-0 cursor-move overflow-x-auto p-0"
           )}>
-          {data.map((item, index) => (
+          {testimonials.map((item, index) => (
             <motion.div
               key={index}
               variants={variants.item}
@@ -51,7 +56,7 @@ export default function Testimonials() {
                 colors[index]
               )}>
               <motion.img
-                src={item.image}
+                src={urlForImage(item.image)}
                 alt={index}
                 variants={variants.item}
                 className={classes(
