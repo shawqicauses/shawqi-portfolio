@@ -7,9 +7,10 @@ import {
   Contact,
   Header,
   Pricing,
+  Skills,
+  Testimonials,
   Work
 } from "../containers/containers"
-import Skills from "../containers/skills"
 
 export default function App() {
   const font = [
@@ -32,6 +33,7 @@ export default function App() {
       <Skills />
       <Blog />
       <Pricing />
+      <Testimonials />
       <Contact />
     </Fragment>
   )

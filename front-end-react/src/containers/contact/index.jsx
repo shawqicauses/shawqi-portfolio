@@ -100,6 +100,7 @@ export default function Contact() {
           )}>
           {inputs.map(({ type, id, name, label }) => (
             <div
+              key={id}
               className={classes(
                 "flex h-auto w-full flex-col gap-3",
                 "items-start justify-start lg:gap-4",

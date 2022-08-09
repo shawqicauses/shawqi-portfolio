@@ -1,10 +1,5 @@
-.env.local
 .vscode
 .env
 build
 node_modules
-back-end-react/node_modules
-front-end-react/node_modules
 package-lock.json
-back-end-react/package-lock.json
-front-end-react/package-lock.json
